@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>гипножаба</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background: #000;
+      min-height: 100dvh;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      font-family: Montserrat, sans-serif;
+    }
+
+    .page {
+      width: 390px;
+      min-height: 100dvh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+      padding: 48px 16px 40px;
+    }
+
+    /* Логотип */
+    .logo {
+      display: flex;
+      width: 132px;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo img {
+      width: 132px;
+      object-fit: contain;
+    }
+
+    .logo-text {
+      color: #fff;
+      font-size: 20px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+    }
+
+    /* Заголовок */
+    .title {
+      width: 358px;
+      color: #fff;
+      text-align: center;
+      font-size: 28px;
+      font-weight: 700;
+      line-height: 34px;
+      text-transform: lowercase;
+    }
+
+    /* Подзаголовок */
+    .subtitle {
+      width: 358px;
+      color: #808080;
+      text-align: center;
+      font-size: 15px;
+      font-weight: 600;
+      line-height: normal;
+    }
+
+    /* Карточка */
+    .card {
+      position: relative;
+      width: 342px;
+      height: 292px;
+    }
+
+    .card-bg {
+      position: absolute;
+      inset: 0;
+      border-radius: 24px;
+      overflow: hidden;
+    }
+
+    .card-bg svg {
+      width: 100%;
+      height: 100%;
+    }
+
+    /* Плашка LIMITED */
+    .badge-limited {
+      position: absolute;
+      top: 16px;
+      left: 16px;
+      display: flex;
+      width: 112px;
+      height: 40px;
+      justify-content: center;
+      align-items: center;
+      z-index: 1;
+    }
+
+    .badge-limited img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    /* Контейнер с лягушкой */
+    .frog-wrap {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 38px 63px;
+    }
+
+    .frog-img {
+      width: 216px;
+      height: 216px;
+      flex-shrink: 0;
+      object-fit: cover;
+    }
+
+    /* Кнопки */
+    .btn {
+      display: flex;
+      width: 278px;
+      height: 56px;
+      padding: 18px 0;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      border-radius: 20px;
+      border: none;
+      cursor: pointer;
+      font-family: Montserrat, sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      text-decoration: none;
+    }
+
+    .btn-primary {
+      background: #fff;
+      color: #000;
+    }
+
+    .btn-secondary {
+      background: #242424;
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+
+    <!-- Логотип -->
+    <div class="logo">
+      <img src="logo.png" alt="Blink logo" />
+    </div>
+
+    <!-- Заголовок -->
+    <h1 class="title">гипножаба</h1>
+
+    <!-- Подзаголовок -->
+    <p class="subtitle">все её любят — ведь это база!</p>
+
+    <!-- Карточка -->
+    <div class="card">
+      <!-- SVG-паттерн фон -->
+      <div class="card-bg">
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="342" height="292" viewBox="0 0 342 292" fill="none">
+          <rect width="342" height="292" rx="24" fill="#111"/>
+          <rect width="342" height="292" rx="24" fill="url(#pattern0_1_7172)"/>
+          <defs>
+            <pattern id="pattern0_1_7172" patternUnits="userSpaceOnUse" patternTransform="matrix(16 0 0 16 163 138)" preserveAspectRatio="none" viewBox="0 0 16 16" width="1" height="1">
+              <g id="pattern0_1_7172_inner">
+                <circle opacity="0.1" cx="8" cy="8" r="1" fill="white"/>
+              </g>
+            </pattern>
+          </defs>
+        </svg>
+      </div>
+
+      <!-- Значок LIMITED -->
+      <div class="badge-limited">
+        <img src="limited.png" alt="Limited" />
+      </div>
+
+      <!-- Лягушка -->
+      <div class="frog-wrap">
+        <img class="frog-img" src="frog.png" alt="гипножаба" />
+      </div>
+    </div>
+
+    <!-- Кнопка — забрать стикер -->
+    <a href="blink:///market/offer?id=144" class="btn btn-primary">Забрать стикер</a>
+
+    <!-- Кнопка — скачать приложение -->
+    <a href="#" class="btn btn-secondary">Скачать приложение</a>
+
+  </div>
+  <script>
+    var protoUrl = "blink:///market/offer?id=144";
+    setTimeout(function() {
+      window.location = protoUrl;
+    }, 100);
+  </script>
+</body>
+</html>
