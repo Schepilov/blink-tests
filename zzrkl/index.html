@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#100d16">
+  <title>Зазеркалье — прототип</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="extra.css">
+</head>
+<body>
+  <main id="phone" class="phone" aria-label="Мобильный прототип Зазеркалье">
+    <section id="intro" class="screen intro active" aria-label="Начало">
+      <img class="intro-art" src="assets/bf357.png" alt="">
+      <img class="intro-art intro-overlay" src="assets/7788b.png" alt="">
+      <div class="intro-fade"></div>
+      <img class="title-art" src="assets/affd1.png" alt="Тряхлик в Зазеркалье">
+      <img class="star" src="assets/bddb4.png" alt="Тряхлик">
+      <img class="mirror-logo" src="assets/214e3.png" alt="Зазеркалье">
+      <div class="blink-brand" aria-label="Blink"><img class="blink-logo-img" src="assets/blink-logo.png" alt=""><img class="blink-wordmark" src="assets/blink-wordmark.svg" alt=""></div>
+      <p class="intro-copy">вот тут мы вставляем<br>какое-то введение в лор,<br>которое быстро погружает игрока<br>в суть предстоящей истории</p>
+      <button id="start" class="start-button">Расследовать</button>
+      <button id="hint-open" class="hint-link">что такое зазеркалье?</button>
+    </section>
+
+    <section id="story" class="screen story" aria-label="История">
+      <img class="room" src="assets/c6305.png" alt="Рабочий кабинет детектива">
+      <div class="character" id="character">
+        <img class="character-body" src="assets/e5bc3.png" alt="Персонаж">
+        <img class="character-pin" src="assets/1e305.svg" alt="">
+        <img class="character-face" src="assets/b243f.png" alt="">
+      </div>
+      <div id="top-bar" class="cinema-bar top-bar"></div>
+      <div id="bottom-bar" class="cinema-bar bottom-bar"></div>
+      <p id="subtitle" class="subtitle" aria-live="polite"></p>
+      <button id="cassette" class="cassette" aria-label="Посмотреть видеокассету">
+        <img class="cassette-glow" src="assets/fa3b9.svg" alt="">
+        <img class="cassette-picture" src="assets/f43e7.png" alt="">
+        <img class="cassette-outline" src="assets/f6f95.svg" alt="">
+        <span class="cassette-hint">нажми, чтобы<br>посмотреть<br>видеокассету</span>
+      </button>
+      <button id="mirror-trigger" class="object-trigger mirror-trigger" aria-label="Осмотреть зеркало">
+        <span class="object-glow"></span><img class="mirror-object" src="assets/0d485.png" alt=""><img class="mirror-outline" src="assets/0050d.svg" alt=""><span class="object-hint mirror-hint">осмотреть<br>зеркало</span><img class="object-tail mirror-tail" src="assets/b36a0.svg" alt="">
+      </button>
+      <button id="board-trigger" class="object-trigger board-trigger" aria-label="Составить список свидетелей">
+        <span class="object-glow"></span><img class="board-object" src="assets/df3fa.png" alt=""><img class="board-outline" src="assets/51320.svg" alt=""><span class="object-hint board-hint">составить список<br>свидетелей</span><img class="object-tail board-tail" src="assets/533de.svg" alt="">
+      </button>
+    </section>
+
+    <section id="player" class="screen player" aria-label="Видеоплеер">
+      <img class="room" src="assets/c6305.png" alt="">
+      <div class="player-shade"></div>
+      <img class="tv" src="assets/ed2fe.png" alt="Телевизор">
+      <div class="video-window">
+        <video id="video" playsinline controls poster="assets/edd30.png"><source src="анонс.mp4" type="video/mp4"></video>
+        <div id="video-fallback" class="video-fallback"><img src="assets/edd30.png" alt="Кадр видеокассеты"><span>Видео будет доступно после добавления файла</span></div>
+      </div>
+      <button id="back" class="back-button" aria-label="Назад"><img src="assets/3bfa2.svg" alt=""></button>
+    </section>
+
+    <section id="mirror" class="screen mirror-screen" aria-label="Зеркало">
+      <img class="room" src="assets/c6305.png" alt="">
+      <div class="player-shade"></div>
+      <img class="mirror-large" src="assets/9f7fb.png" alt="Разбитое зеркало">
+      <div class="mirror-bottom"></div>
+      <p id="mirror-subtitle" class="subtitle mirror-subtitle" aria-live="polite"></p>
+      <button id="mirror-back" class="back-button" aria-label="Назад"><img src="assets/3bfa2.svg" alt=""></button>
+    </section>
+
+    <section id="board" class="screen board-screen" aria-label="Доска свидетелей">
+      <img class="room" src="assets/c6305.png" alt="">
+      <div class="board-shade"></div>
+      <div class="board-zoom"><div class="board-zoom-inner"><img src="assets/0fd96.png" alt="Доска свидетелей"></div></div>
+      <div class="board-bottom"></div>
+      <div class="board-progress"><div><span>свидетели</span><strong>0/ 5</strong></div><div class="progress-bars"><i></i><i></i><i></i><i></i><i></i></div></div>
+      <button class="witness witness-1" aria-label="Досье свидетеля 1">?</button>
+      <button class="witness witness-2" aria-label="Досье свидетеля 2">?</button>
+      <button class="witness witness-3" aria-label="Досье свидетеля 3">?</button>
+      <button class="witness witness-4" aria-label="Досье свидетеля 4">?</button>
+      <button class="witness witness-5" aria-label="Досье свидетеля 5">?</button>
+      <button class="witness witness-6" aria-label="Досье свидетеля 6">?</button>
+      <button id="board-back" class="back-button" aria-label="Назад"><img src="assets/3bfa2.svg" alt=""></button>
+      <div id="dossier" class="dossier-overlay" hidden>
+        <div class="dossier-sheet" role="dialog" aria-modal="true" aria-labelledby="dossier-title">
+          <div class="dossier-heading"><div class="dossier-portrait">?</div><div><h2 id="dossier-title">????????</h2><span class="dossier-stamp">ещё не встречались</span><p>вид: ??????????</p><p>хуй: ??????????</p></div></div>
+          <p class="dossier-clue">???????????????????????????????????????<br>тут подсказка где он может находиться</p>
+          <h3>заметка</h3>
+          <div class="dossier-note"><p>улика: осколок зеркала<br><em>от бобыля. явно кто-то был голоден</em></p><img src="assets/06182.png" alt=""></div>
+          <button id="dossier-close">иди нахуй четыре раза</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="ending" class="screen ending" aria-label="Финал">
+      <img class="room" src="assets/c6305.png" alt="Рабочий кабинет">
+      <div id="ending-character" class="character visible"><img class="character-body" src="assets/e5bc3.png" alt="Персонаж"><img class="character-pin" src="assets/1bb80.svg" alt=""><img class="character-face" src="assets/b243f.png" alt=""></div>
+      <div class="cinema-bar top-bar"></div><div class="cinema-bar bottom-bar"></div>
+      <p id="ending-subtitle" class="subtitle" aria-live="polite"></p>
+    </section>
+
+    <div id="hint" class="hint-scrim" hidden>
+      <div class="hint-sheet" role="dialog" aria-modal="true" aria-labelledby="hint-title">
+        <h2 id="hint-title">чё такое зазеркалье?</h2>
+        <p>а хуй его знает если честно</p>
+        <button id="hint-close">понятно, пошёл нахуй</button>
+      </div>
+    </div>
+
+    <div class="header-controls"><button id="close" class="icon-button close-button" aria-label="На главный экран"><img src="assets/187b4.svg" alt=""></button><button id="sound" class="icon-button sound-button" aria-label="Выключить звук"><img class="sound-on" src="assets/c5743.svg" alt=""><img class="sound-off" src="assets/c6e90.svg" alt=""></button></div>
+    <audio id="background-audio" src="bg.mp3" loop preload="auto" aria-hidden="true"></audio>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>

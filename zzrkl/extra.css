@@ -1,0 +1,74 @@
+/* Интерактивные объекты кабинета */
+.header-controls{z-index:10}
+.back-button{display:grid;place-items:center;font-size:0;line-height:0}
+.back-button img{display:block;width:8.6px;height:15.8px;transform:translateX(-1.4px) scaleX(-1)}
+.sound-button.muted{opacity:1}
+.sound-button .sound-off{display:none}
+.sound-button.muted .sound-on{display:none}
+.sound-button.muted .sound-off{display:block}
+.object-trigger{display:none;position:absolute;border:0;padding:0;background:transparent}
+.story.mirror-ready .mirror-trigger,.story.board-ready .board-trigger{display:block}
+.story.mirror-ready .cassette,.story.board-ready .cassette{display:none}
+.mirror-trigger{left:20px;top:368px;width:135px;height:249px}
+.mirror-trigger .object-glow{position:absolute;left:0;top:21px;width:110px;height:235px;background:radial-gradient(ellipse,#f66ab899 0%,#f66ab844 50%,transparent 75%);animation:glow 1.8s ease-in-out infinite}
+.mirror-object{position:absolute;left:3px;top:41px;width:81px;height:199px;object-fit:contain}
+.mirror-outline{position:absolute;left:6px;top:43px;width:78px;height:201px;animation:glow 1.8s ease-in-out infinite}
+.object-hint{position:absolute;display:block;background:#fff;color:#111;font:8px/1.05 Montserrat,Arial,sans-serif;padding:5px;border-radius:7px;text-align:center;white-space:nowrap;box-shadow:0 2px 5px #0005;animation:hint-in .5s both}
+.mirror-hint{left:79px;top:110px;transform:rotate(12deg)}
+.board-trigger{left:153px;top:289px;width:155px;height:165px}
+.board-trigger .object-glow{position:absolute;left:38px;top:6px;width:112px;height:143px;background:radial-gradient(ellipse,#f66ab899 0%,#f66ab844 50%,transparent 75%);animation:glow 1.8s ease-in-out infinite}
+.board-object{position:absolute;left:72px;top:25px;width:50px;height:101px;object-fit:contain}
+.board-outline{position:absolute;left:73px;top:29px;width:48px;height:97px;animation:glow 1.8s ease-in-out infinite}
+.board-hint{left:2px;top:113px;transform:rotate(14deg)}
+.object-tail{position:absolute;width:9px;height:8px}.mirror-tail{left:74px;top:122px;transform:rotate(12deg)}.board-tail{left:74px;top:125px;transform:rotate(14deg)}
+
+/* Зеркало */
+.mirror-large{position:absolute;left:-77px;top:-122px;width:545px;height:1118px;object-fit:contain}
+.mirror-bottom{position:absolute;left:0;bottom:0;width:390px;height:170px;background:#000;transition:transform .9s ease,opacity .9s ease}
+.mirror-subtitle{transition:transform .9s ease,opacity .9s ease}
+.mirror-screen.clear .mirror-bottom,.mirror-screen.clear .mirror-subtitle{transform:translateY(170px);opacity:0}
+.story.interlude .top-bar,.ending.interlude .top-bar{transform:translateY(-100%)}
+.story.interlude .bottom-bar,.ending.interlude .bottom-bar{transform:translateY(100%)}
+.story.interlude .subtitle,.ending.interlude .subtitle{visibility:hidden}
+
+/* Доска и карточки свидетелей */
+.board-shade{position:absolute;inset:0;background:#0009}
+.board-zoom{position:absolute;left:-35px;top:1px;width:443px;height:693px;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.board-zoom-inner{position:relative;width:693px;height:443px;flex:none;transform:rotate(90deg);overflow:hidden}
+.board-zoom-inner img{position:absolute;left:-248.73%;top:-179.31%;width:497.72%;height:450.45%;max-width:none}
+.board-bottom{position:absolute;left:0;bottom:0;width:390px;height:170px;background:#000}
+.board-progress{position:absolute;left:15px;top:701px;width:361px;color:#bdb3cc}
+.board-progress>div:first-child{display:flex;justify-content:space-between;align-items:center;padding:0 0 0 19px;height:22px;font:13px/18px Arial,sans-serif}
+.board-progress strong{font:700 18px/22px Montserrat,Arial,sans-serif;color:#aaef00}
+.progress-bars{display:flex;gap:8px;margin-top:14px}
+.progress-bars i{display:block;width:62px;height:6px;border-radius:3px;background:#3a3048}
+.progress-bars i:first-child{background:#aaef00}
+.witness{position:absolute;display:grid;place-items:center;width:61px;height:63px;padding:0;border-radius:11px;background:#332a23;color:#ffa33a;font:700 30px/1 Montserrat,Arial,sans-serif;transform:rotate(6deg)}
+.witness-1{left:192px;top:141px}.witness-2{left:98px;top:257px}.witness-3{left:240px;top:268px}.witness-4{left:187px;top:402px}.witness-5{left:96px;top:554px}.witness-6{left:244px;top:595px}
+.witness:focus-visible,.object-trigger:focus-visible{outline:2px solid #ffa33a;outline-offset:3px}
+.dossier-overlay{position:absolute;inset:0;z-index:8;display:grid;place-items:center;background:#0005}
+.dossier-overlay[hidden]{display:none}
+.dossier-sheet{width:320px;min-height:428px;padding:20px;background:#fdfaf7;border-radius:30px;color:#111}
+.dossier-heading{display:flex;gap:17px;align-items:flex-start}
+.dossier-portrait{display:grid;place-items:center;width:108px;height:108px;flex:none;border-radius:20px;background:#332a23;color:#ffa33a;font:700 54px Montserrat,Arial,sans-serif}
+.dossier-heading h2{margin:0 0 6px;font:600 20px/1.12 Montserrat,Arial,sans-serif}
+.dossier-heading p{margin:5px 0;font:15px/20px Arial,sans-serif}
+.dossier-stamp{display:inline-block;border:2px solid #111;padding:1px 3px;font:17px/22px Arial,sans-serif;white-space:nowrap}
+.dossier-clue{min-height:83px;margin:12px 0 3px;font:15px/20px Arial,sans-serif;overflow-wrap:anywhere}
+.dossier-sheet h3{margin:8px 0 13px;text-align:center;font:700 22px/24px Arial,sans-serif}
+.dossier-note{display:flex;min-height:62px;align-items:flex-start}
+.dossier-note p{width:220px;margin:0;font:15px/20px Arial,sans-serif}.dossier-note em{font:italic 17px/21px Arial,sans-serif}
+.dossier-note img{width:60px;height:60px;object-fit:contain}
+.dossier-sheet button{width:280px;height:56px;margin-top:10px;border-radius:20px;background:#242424;color:#fff;text-transform:uppercase;font:700 15px Montserrat,Arial,sans-serif}
+
+/* Финальное приближение */
+.ending .character{transition:transform 2.8s ease-in-out;transform-origin:top left}
+.ending .character-pin{left:56px;width:71.576px;height:78.124px}.ending .character-face{left:61px;width:61.309px;height:61.309px}
+.ending.zoomed .character{transform:translate(-613px,-292px) scale(6.83)}
+.ending.open .top-bar{transform:translateY(-100%)}.ending.open .bottom-bar{transform:translateY(100%)}.ending.open .subtitle{display:none}
+
+/* На телефоне прототип занимает всю видимую область. */
+@media (max-width:600px){
+  body{display:block;background:#100d16}
+  .phone{position:absolute;top:0;left:0;border-radius:0;transform-origin:top left;transform:scale(var(--scale-x,1),var(--scale-y,1))}
+}
