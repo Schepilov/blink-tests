@@ -1,5 +1,5 @@
 /* Интерактивные объекты кабинета */
-.header-controls{z-index:10}
+.header-controls{top:112px;z-index:10}
 .back-button{display:grid;place-items:center;font-size:0;line-height:0}
 .back-button img{display:block;width:8.6px;height:15.8px;transform:translateX(-1.4px) scaleX(-1)}
 .sound-button.muted{opacity:1}

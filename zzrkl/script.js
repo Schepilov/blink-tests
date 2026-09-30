@@ -136,30 +136,6 @@ async function continueAfterBoard() {
   ending.classList.add('zoomed');
 }
 
-function goHome() {
-  runToken++;
-  video.pause();
-  video.currentTime = 0;
-  story.classList.remove('reveal', 'open', 'mirror-ready', 'board-ready', 'interlude');
-  $('#character').classList.remove('visible');
-  mirror.classList.remove('clear');
-  ending.classList.remove('open', 'zoomed', 'interlude');
-  $('#hint').hidden = true;
-  $('#dossier').hidden = true;
-  subtitle.textContent = '';
-  $('#mirror-subtitle').textContent = '';
-  $('#ending-subtitle').textContent = '';
-  soundOn = true;
-  video.muted = false;
-  backgroundAudio.pause();
-  backgroundAudio.currentTime = 0;
-  backgroundAudio.muted = false;
-  $('#sound').classList.remove('muted');
-  $('#sound').setAttribute('aria-label', 'Выключить звук');
-  show(intro);
-  playBackground();
-}
-
 $('#start').addEventListener('click', begin);
 $('#hint-open').addEventListener('click', () => { playBackground(); $('#hint').hidden = false; });
 $('#hint-close').addEventListener('click', () => { $('#hint').hidden = true; });
@@ -178,7 +154,6 @@ for (const card of document.querySelectorAll('.witness')) {
   card.addEventListener('click', () => { $('#dossier').hidden = false; });
 }
 $('#dossier-close').addEventListener('click', () => { $('#dossier').hidden = true; });
-$('#close').addEventListener('click', goHome);
 $('#sound').addEventListener('click', () => {
   soundOn = !soundOn;
   video.muted = !soundOn;
