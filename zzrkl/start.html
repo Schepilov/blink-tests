@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#100d16">
+  <title>Зазеркалье — открыть в Blink</title>
+  <style>
+    @font-face {
+      font-family: Montserrat;
+      font-style: normal;
+      font-weight: 700;
+      font-display: swap;
+      src: url("assets/fonts/Montserrat-Bold.woff2") format("woff2");
+    }
+
+    * { box-sizing: border-box; }
+    html, body { width: 100%; height: 100%; margin: 0; overflow: hidden; }
+    body { display: grid; place-items: center; background: #25222b; }
+
+    .screen {
+      position: relative;
+      width: 390px;
+      height: 844px;
+      flex: none;
+      overflow: hidden;
+      border-radius: 36px;
+      background: #100d16;
+      transform: scale(var(--scale, 1));
+      transform-origin: center;
+    }
+
+    .art {
+      position: absolute;
+      left: -25px;
+      top: 198px;
+      width: 439px;
+      height: 410px;
+      overflow: hidden;
+    }
+    .art img { position: absolute; display: block; max-width: none; }
+    .art .room { left: 0; top: -6.9%; width: 100%; height: 106.9%; }
+    .art .texture { inset: 0; width: 100%; height: 100%; object-fit: cover; }
+    .art::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, #100d1600 50.132%, #100d16 100%),
+                  linear-gradient(180deg, #100d16 0%, #100d1600 54.749%);
+    }
+
+    .open-button {
+      position: absolute;
+      left: 44px;
+      top: 396px;
+      display: grid;
+      place-items: center;
+      width: 302.714px;
+      height: 52px;
+      border-radius: 20px;
+      background: #fb60b1;
+      color: #fff;
+      font: 700 13.93px/1 Montserrat, Arial, sans-serif;
+      text-align: center;
+      text-decoration: none;
+      text-transform: uppercase;
+    }
+    .open-button:focus-visible { outline: 2px solid #fff; outline-offset: 3px; }
+
+    @media (max-width: 600px) {
+      body { display: block; background: #100d16; }
+      .screen {
+        position: absolute;
+        top: 0;
+        left: 0;
+        border-radius: 0;
+        transform: scale(var(--scale-x, 1), var(--scale-y, 1));
+        transform-origin: top left;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main id="screen" class="screen" aria-label="Открыть Зазеркалье в Blink">
+    <div class="art" aria-hidden="true">
+      <img class="room" src="assets/bf357.png" alt="">
+      <img class="texture" src="assets/7788b.png" alt="">
+    </div>
+    <a class="open-button" href="https://schepilov.github.io/blink-tests/zzrkl/">Открыть прототип</a>
+  </main>
+  <script>
+    const screen = document.querySelector('#screen');
+    const isMobileDevice = navigator.userAgentData?.mobile || /Android|iPhone|iPad|iPod|Windows Phone/i.test(navigator.userAgent);
+    if (isMobileDevice) {
+      const openButton = document.querySelector('.open-button');
+      openButton.href = 'blink:///webfeature?url=https://schepilov.github.io/blink-tests/zzrkl/';
+      openButton.textContent = 'Открыть в Blink';
+    }
+    function fit() {
+      if (matchMedia('(max-width: 600px)').matches) {
+        screen.style.setProperty('--scale-x', innerWidth / 390);
+        screen.style.setProperty('--scale-y', innerHeight / 844);
+      } else {
+        screen.style.setProperty('--scale', Math.min(innerWidth / 390, innerHeight / 844, 1));
+      }
+    }
+    addEventListener('resize', fit);
+    window.visualViewport?.addEventListener('resize', fit);
+    fit();
+  </script>
+</body>
+</html>
